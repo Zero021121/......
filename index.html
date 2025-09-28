@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>...</title>
+  <style>
+    /* Reset & base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+
+    /* Layout: center everything both axes */
+    .container{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#fafafa,#f3f4f6);
+      padding:24px;
+    }
+
+    /* Card to hold the form */
+    .card{
+      width:100%;
+      max-width:420px;
+      background:white;
+      border-radius:12px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(16,24,40,0.08);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+    }
+
+    /* The single-line text bar */
+    .text-bar{
+      width:100%;
+      display:flex;
+    }
+    .text-bar input[type="text"]{
+      width:100%;
+      padding:12px 14px;
+      font-size:16px;
+      border:1px solid #e6e7eb;
+      border-radius:8px;
+      outline:none;
+      transition:box-shadow .12s, border-color .12s;
+    }
+    .text-bar input[type="text"]:focus{
+      border-color:#9ca3af;
+      box-shadow:0 0 0 4px rgba(99,102,241,0.06);
+    }
+
+    /* The PNG below the text bar, kept centered */
+    .preview{
+      width:160px;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.04);
+      padding:6px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(250,250,250,0.6));
+    }
+
+    /* Small helper text */
+    .note{font-size:13px;color:#6b7280;text-align:center}
+
+    @media (max-width:420px){
+      .card{padding:20px}
+      .preview{width:140px}
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card" role="region" aria-label="Text bar with image preview">
+      <!-- Single text bar -->
+      <form class="text-bar" onsubmit="event.preventDefault(); return false;">
+        <!-- Ganti form dengan div -->
+            <div class="text-bar">
+            <h1>I'm Sorry Baby..</h1>
+</div>
+
+      </form>
+
+      <!-- PNG below the text bar (replace the src with your file path) -->
+      <img id="previewImg" class="preview" src="https://github.com/user-attachments/assets/03898aac-f4f6-48bb-afcb-b415281740ab" alt="Centered preview image">
+
+    
+    </section>
+  </main>
+
+  <script>
+    // Optional: live-update the alt text using the input (example behaviour)
+    const input = document.getElementById('singleInput');
+    const img = document.getElementById('previewImg');
+
+    input.addEventListener('input', () => {
+      // set the image alt or title to reflect input (non-destructive)
+      img.alt = input.value ? input.value : 'Centered preview image';
+    });
+  </script>
+</body>
+</html>
